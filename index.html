@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>🥒 Огурчик Мессенджер</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(120deg, #b0e57c, #7cb342);
+      color: #103f10;
+      margin: 0;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 8px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+
+    nav a:hover {
+      background-color: #388e3c;
+      border-radius: 5px;
+    }
+
+    main {
+      padding: 20px;
+      display: none;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.8);
+      margin: 20px auto;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 800px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .cucumber-img {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 15px auto;
+      border-radius: 10px;
+      background-color: #e0f2e9;
+    }
+
+    footer {
+      background: #1b5e20;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* --- Login box --- */
+    #login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #login-box {
+      background: #c8e6c9;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    #login-box input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      border: 1px solid #4caf50;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    #login-box button {
+      background: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    #login-box button:hover {
+      background: #388e3c;
+    }
+
+    .post {
+      background: #dcedc8;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    textarea, input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #4caf50;
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      background: #4caf50;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button[type="submit"]:hover {
+      background: #388e3c;
+    }
+
+    .logout-btn {
+      background: #66bb6a;
+      border: none;
+      padding: 5px 10px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .logout-btn:hover {
+      background: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <!-- Страница входа -->
+  <div id="login-container">
+    <div id="login-box">
+      <h2>🥒 Вход в Огурчик Мессенджер</h2>
+      <input type="text" id="username" placeholder="Логин">
+      <input type="password" id="password" placeholder="Пароль">
+      <button onclick="login()">Войти</button>
+      <p>* Логин: <b>ogurec</b> | Пароль: <b>123</b></p>
+    </div>
+  </div>
+
+  <!-- Основной сайт -->
+  <header>
+    <h1>🥒 Огурчик Мессенджер</h1>
+    <nav>
+      <a href="#history" onclick="showSection('history')">История</a>
+      <a href="#space" onclick="showSection('space')">Космос</a>
+      <a href="#facts" onclick="showSection('facts')">Факты</a>
+      <a href="#structure" onclick="showSection('structure')">Состав</a>
+      <a href="#benefits" onclick="showSection('benefits')">Польза</a>
+      <a href="#news" onclick="showSection('news')">Новости</a>
+      <a href="#post" onclick="showSection('post')">Сообщения</a>
+      <a href="#contact" onclick="showSection('contact')">Обратная связь</a>
+      <button class="logout-btn" onclick="logout()">Выйти</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="history">
+      <h2>История огурца</h2>
+      <p>Огурцы выращиваются уже более 3000 лет. Родина огурца — Индия.</p>
+      <img src="ogurec/images.png" class="cucumber-img" alt="огурец">
+    </section>
+
+    <section id="space" style="display:none;">
+      <h2>Огурец в космосе 🚀</h2>
+      <p>В 1971 году огурец отправился в космос на борту “Союз-11”!</p>
+      <img src="ogurec/zagruzheno (1).png" class="cucumber-img" alt="огурец в космосе">
+    </section>
+
+    <section id="facts" style="display:none;">
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>96% огурца — вода.</li>
+        <li>Существует более 100 сортов огурца.</li>
+        <li>Огурцы отлично утоляют жажду.</li>
+      </ul>
+      <img src="ogurec/zagruzheno (2).png" class="cucumber-img" alt="факты">
+    </section>
+
+    <section id="structure" style="display:none;">
+      <h2>Состав огурца</h2>
+      <p>Огурец содержит витамины A, C, K, а также калий и магний.</p>
+      <img src="ogurec/zagruzheno (3).png" class="cucumber-img" alt="состав">
+    </section>
+
+    <section id="benefits" style="display:none;">
+      <h2>Польза огурца</h2>
+      <p>Огурцы увлажняют, очищают и поддерживают здоровье организма.</p>
+      <img src="ogurec/zagruzheno (4).png" class="cucumber-img" alt="польза">
+    </section>
+
+    <section id="news" style="display:none;">
+      <h2>Огуречные новости 🥒</h2>
+      <div id="news-container">
+        <p>📢 Сегодня новый сорт огурца представлен в теплице Мичурина.</p>
+      </div>
+    </section>
+
+    <section id="post" style="display:none;">
+      <h2>Написать сообщение</h2>
+      <form onsubmit="addPost(event)">
+        <textarea placeholder="Ваш пост..." required></textarea>
+        <button type="submit">Опубликовать</button>
+      </form>
+      <div id="posts"></div>
+    </section>
+
+    <section id="contact" style="display:none;">
+      <h2>Обратная связь 📩</h2>
+      <form onsubmit="alert('Сообщение отправлено!'); return false;">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 🥒 Огурчик Мессенджер | Сделано с любовью к огурцам</p>
+  </footer>
+
+  <script>
+    const loginContainer = document.getElementById("login-container");
+    const main = document.querySelector("main");
+
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user === "ogurec" && pass === "123") {
+        loginContainer.style.display = "none";
+        main.style.display = "block";
+        localStorage.setItem("loggedIn", "true");
+      } else {
+        alert("Неверный логин или пароль");
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      location.reload();
+    }
+
+    // Проверка входа
+    window.onload = () => {
+      if (localStorage.getItem("loggedIn") === "true") {
+        loginContainer.style.display = "none";
+        main.style.display = "block";
+      }
+    };
+
+    function showSection(id) {
+      document.querySelectorAll("main section").forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "block";
+    }
+
+    function addPost(e) {
+      e.preventDefault();
+      const text = e.target.querySelector("textarea").value.trim();
+      if (text) {
+        const div = document.createElement("div");
+        div.className = "post";
+        div.textContent = text;
+        document.getElementById("posts").prepend(div);
+        e.target.reset();
+      }
+    }
+  </script>
+</body>
+</html>
